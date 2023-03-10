@@ -1,0 +1,33 @@
+            <section class="tabla col-xxl m-auto">
+                <h1 class="text-center">Productos</h1>
+                <table class="table table-striped col-xxl" id="productos-list">
+                    <thead>
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Producto</th>
+                            <th>Precio</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for producto in productos %}
+                        <tr>
+                            <td style="width:250px;">
+                                <img style="width:100%;" src=" {{producto.imagen}} " alt="">
+                            </td>
+                            <td>{{producto.nombre}}</td>
+                            <td>$ {{producto.precio}}</td>
+                            <td>
+                                <a href=" {% url 'detailproduct' producto.id %} " class="btn btn-sm btn-primary"> + </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+            <br>
+            <script>
+                let table = new DataTable('#productos-list',{
+                    responsive:true,
+                });
+            </script>
